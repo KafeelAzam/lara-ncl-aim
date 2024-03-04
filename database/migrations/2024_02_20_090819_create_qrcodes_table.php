@@ -12,14 +12,15 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('qrget_data', function (Blueprint $table) {
-            $table->id();
-            // $table->id('id');
-            $table->string('qrcode', 12);
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('qrcodes', function (Blueprint $table) {
+        $table->id();
+        $table->string('card_id');
+        $table->text('qr_code');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qrget_data');
+        Schema::dropIfExists('qrcodes');
     }
 };

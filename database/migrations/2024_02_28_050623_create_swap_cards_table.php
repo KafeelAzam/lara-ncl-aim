@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('qrget_data', function (Blueprint $table) {
+        Schema::create('swap_cards', function (Blueprint $table) {
             $table->id();
-            // $table->id('id');
-            $table->string('qrcode', 12);
+            $table->string('qr_code')->unique();
+            $table->string('card_number');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qrget_data');
+        Schema::dropIfExists('swap_cards');
     }
 };

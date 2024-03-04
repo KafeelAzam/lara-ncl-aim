@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\QRgetDataConroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\SwapStationController;
+use App\Http\Controllers\QRCodeController;
 
 
 /*
@@ -18,14 +16,12 @@ use App\Http\Controllers\SwapStationController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum'])->post('/user', function (Request $request) {
     return $request->user();
 });
 
+// Route to store a new QR code
+Route::post('/qrcodes', [QRCodeController::class, 'store']);
 
-// Route::post('/swap-station', [SwapStationController::class, 'store']);
-
-
-
-
-Route::post('/qrget_data', [QRgetDataConroller::class, 'store']);
+// Route to retrieve a QR code by card ID
+Route::get('/qrcodes/{cardId}', [QRCodeController::class, 'show']);

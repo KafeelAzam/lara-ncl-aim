@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\QRgetData;
-use Validator;
+//use Validator;
+use Illuminate\Support\Facades\Validator;
 
-class QRgetDataConroller extends Controller
+
+
+class QRgetDataController extends Controller
 {
     public function store(Request $request){
         $validation = Validator::make($request->all(),[

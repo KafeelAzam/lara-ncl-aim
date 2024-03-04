@@ -9,7 +9,7 @@ class QRgetData extends Model
 {
     use HasFactory;
 
-    protected $table = 'QRgetData';
+    protected $table = 'qrget_data';
 
     protected $fillable = [
         'id',
